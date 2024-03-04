@@ -1,5 +1,6 @@
 import QuoteWidget from "@/components/QuoteWidget.js";
 import WeatherWidget from "@/components/WeatherWidget.js";
+import TodoList from "@/components/TodoList.js";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
           <WeatherWidget />
           <QuoteWidget />
         </div>
+        <TodoList />
       </div>
     </main>
   );
