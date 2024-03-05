@@ -33,7 +33,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 For this project, I'm utilizing the latest version of Next.js for its numerous features, including client-side rendering and Incremental Static Regeneration (ISR), which are native in the latest version if Nextjs. For this project I have gone with native first approach meaning I wont be using any dependencies or repos. 
 
-For the styling, to make sure it have consistent styling and breakpoints, I'm using TailwindCSS to quickly bootstrap the project. 
+For the styling, to make sure it have consistent styling and breakpoints, I'm using TailwindCSS to quickly bootstrap the project. The design is heavily inspired from Notion personal dashboard. 
 
 For unit testing, I've chosen Playwright due to its seamless integration with GitHub Actions (CI/CD) and VSCODE, which simplifies setup and configuration (featuring a native GUI tool for creating playwright tests using VSCODE plugins). ]
 
