@@ -37,7 +37,7 @@ const TodoList = () => {
 
     return (
         <div className="w-full">
-            <h1 className="text-3xl font-bold">Todo List</h1>
+            <h1 className="text-3xl font-bold pb-4">Todo List</h1>
             <div className="flex lg:flex-row flex-col gap-1 mb-6">
                 <input
                     type="text"
