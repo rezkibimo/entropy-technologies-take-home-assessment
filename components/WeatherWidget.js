@@ -43,15 +43,15 @@ const WeatherWidget = () => {
 
     console.log(data);
 
-    if (isLoading) return <p className="min-w-xs max-w-xs min-h-[150px]">Loading...</p>
+    if (isLoading) return <p className="min-w-[230px] min-h-[150px]">Loading...</p>
     if (!data) return <p>No weather data</p>
     return (
-        <div className="flex-1">
-            <div className="flex flex-col items-center justify-center mt-6 min-w-xs max-w-xs min-h-[150px]">
-                <div className="font-medium text-5xl">{data.main.temp}</div>
+        <div className="lg:flex flex-1 flex-col">
+            <div className="flex flex-col items-center justify-center min-w-xs min-h-[150px]">
+                <div className="font-medium text-3xl">{data.main.temp}</div>
                 <div className="font-medium text-sm">{data.weather[0].description}</div>
             </div>
-            <div className="flex flex-row justify-between mt-6">
+            <div className="flex flex-row justify-evenly">
                 <div className="flex flex-col items-center">
                     <div className="font-medium text-sm">Wind</div>
                     <div className="text-sm text-gray-500">{data.wind.speed}k/h</div>
