@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 function QuoteWidget() {
   const [data, setData] = useState(null)
   const [isLoading, setLoading] = useState(true)
-  const url = 'https://dummyjson.com/quotes/random'
+  const url = process.env.QUOTE_OF_THE_DAY_API_KEY
 
   useEffect(() => {
     fetch(url)

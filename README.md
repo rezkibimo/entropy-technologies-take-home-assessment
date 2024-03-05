@@ -38,6 +38,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 - [ ] Articles with newsapi
 - [x] Deployed on Vercel
 - [x] Quotes of the day using dummyjson
+- [x] All APIs loaded using ENV
 - [x] ESLint config
 - [x] Unit testing with Playwright
 

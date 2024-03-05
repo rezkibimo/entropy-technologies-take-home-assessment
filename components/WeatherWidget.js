@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 const WeatherWidget = () => {
     const [data, setData] = useState(null)
     const [isLoading, setLoading] = useState(true)
+    const appid = process.env.OPENWEATHERMAP_API_KEY
 
     useEffect(() => {
         //get the latitude and longitude 
@@ -12,7 +13,7 @@ const WeatherWidget = () => {
             let latitude = position.coords?.latitude;
             let longitude = position.coords?.longitude;
 
-            const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=869ccd959710c42449ab7506049169b2&units=metric`
+            const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${appid}&units=metric`
 
             fetch(url)
                 .then((res) => res.json())
@@ -26,7 +27,7 @@ const WeatherWidget = () => {
                 });
         }, () => {
             console.error("Failed to get current location, defaulting to Sydney");
-            const url = `https://api.openweathermap.org/data/2.5/weather?q=Sydney&appid=869ccd959710c42449ab7506049169b2&units=metric`
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=Sydney&appid=${appid}&units=metric`
 
             fetch(url)
                 .then((res) => res.json())
@@ -41,7 +42,7 @@ const WeatherWidget = () => {
         });
     }, [])
 
-    console.log(data);
+    // console.log(data);
 
     if (isLoading) return <p className="min-w-[230px] min-h-[150px]">Loading...</p>
     if (!data) return <p>No weather data</p>
