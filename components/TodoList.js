@@ -6,7 +6,6 @@ const TodoList = () => {
     const [todos, setTodos] = useState([]);
     const [task, setTask] = useState('');
 
-    // Load TODOs from local storage on app startup
     useEffect(() => {
         const storedTodos = JSON.parse(localStorage.getItem('todos'));
         if (storedTodos) {
@@ -14,20 +13,25 @@ const TodoList = () => {
         }
     }, []);
 
-    // Update local storage whenever TODOs change
     useEffect(() => {
         localStorage.setItem('todos', JSON.stringify(todos));
     }, [todos]);
 
     const handleAddTodo = () => {
         if (task.trim() !== '') {
-            setTodos([...todos, task]);
+            setTodos([...todos, { task: task, completed: false }]);
             setTask('');
         }
     };
 
     const handleRemoveTodo = (index) => {
         const newTodos = todos.filter((_, i) => i !== index);
+        setTodos(newTodos);
+    };
+
+    const handleToggleComplete = (index) => {
+        const newTodos = [...todos];
+        newTodos[index].completed = !newTodos[index].completed;
         setTodos(newTodos);
     };
 
@@ -46,19 +50,23 @@ const TodoList = () => {
             </div>
             <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <tbody>
-                    <tr>
-                        {todos.map((todo, index) => (
-                            <td key={index} className="flex justify-between items-center odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 pl-6 py-4 todo-item">
-                                {todo}
+                    {todos.map((todo, index) => (
+                        <tr key={index} className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 pl-6 py-4">
+                            <td className="flex justify-between items-center">
+                                <input
+                                    type="checkbox"
+                                    checked={todo.completed}
+                                    onChange={() => handleToggleComplete(index)}
+                                />
+                                <span className={`mr-auto pl-4 ${todo.completed ? 'line-through' : ''}`}> {todo.task}</span>
                                 <button className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900" onClick={() => handleRemoveTodo(index)}>Remove</button>
                             </td>
-                        ))}
-                    </tr>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         </div>
     );
 }
 
-
-export default TodoList
+export default TodoList;
