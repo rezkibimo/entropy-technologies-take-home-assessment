@@ -51,20 +51,22 @@ const WeatherWidget = () => {
     if (!data) return <p>No weather data</p>
     return (
         <div className="flex md:flex-1 lg:flex flex-col">
-            <div className="flex flex-col items-center justify-center min-w-xs min-h-[150px]">
-                <div className="font-medium text-3xl">{data.main.temp.toFixed(1)}&deg;C</div>
-                <div className="font-medium text-lg">{data.weather[0].description}</div>
-                <div className="text-sm font-light text-gray-500">L: {data.main.temp_min} H: {data.main.temp_max}</div>
-
-            </div>
-            <div className="flex flex-row justify-evenly">
-                <div className="flex flex-col items-center">
-                    <div className="font-medium text-sm">Wind</div>
-                    <div className="text-sm text-gray-500">{data.wind.speed}k/h</div>
+            <h1 className="text-3xl font-bold pb-4">Weather</h1>
+            <div className="flex flex-col items-centermin-w-xs min-h-[150px]">
+                <div className="mx-auto text-center">
+                    <div className="font-medium text-2xl">{data.main.temp.toFixed(1)}&deg;C</div>
+                    <div className="font-medium text-lg">{data.weather[0].description}</div>
+                    <div className="text-sm font-light text-gray-500">L: {data.main.temp_min} H: {data.main.temp_max}</div>
                 </div>
-                <div className="flex flex-col items-center">
-                    <div className="font-medium text-sm">Humidity</div>
-                    <div className="text-sm text-gray-500">{data.main.humidity}%</div>
+                <div className="flex flex-row justify-evenly mt-4">
+                    <div className="flex flex-col items-center">
+                        <div className="font-medium text-sm">Wind</div>
+                        <div className="text-sm text-gray-500">{data.wind.speed}k/h</div>
+                    </div>
+                    <div className="flex flex-col items-center">
+                        <div className="font-medium text-sm">Humidity</div>
+                        <div className="text-sm text-gray-500">{data.main.humidity}%</div>
+                    </div>
                 </div>
             </div>
         </div>
