@@ -29,8 +29,16 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Checklists
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [x] Nextjs project with TS support
+- [x] Responsive design with Tailwindcss
+- [x] Working todo list with localStore
+- [x] Weather widget with openweathermap
+- [ ] Articles with newsapi
+- [x] Deployed on Vercel
+- [x] Quotes of the day using dummyjson
+- [x] ESLint config
+- [x] Unit testing with Playwright
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Unfortunately newsapi required paid plan in order to use it on non localhost COR, this also included the alternative api. However, I have created a simple article like layout using jsonplaceholder. 
