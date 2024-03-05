@@ -29,6 +29,16 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
+## Explanation
+
+For this project, I'm utilizing the latest version of Next.js for its numerous features, including client-side rendering and Incremental Static Regeneration (ISR), which are native in the latest version if Nextjs. For this project I have gone with native first approach meaning I wont be using any dependencies or repos. 
+
+For the styling, to make sure it have consistent styling and breakpoints, I'm using TailwindCSS to quickly bootstrap the project. 
+
+For unit testing, I've chosen Playwright due to its seamless integration with GitHub Actions (CI/CD) and VSCODE, which simplifies setup and configuration (featuring a native GUI tool for creating playwright tests using VSCODE plugins). ]
+
+For deployment I'm using Vercel, since it got native integration with Github CI/CD for quick deployment. 
+
 ## Checklists
 
 - [x] Nextjs project with TS support
@@ -42,4 +52,4 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 - [x] ESLint config
 - [x] Unit testing with Playwright
 
-Unfortunately, NewsAPI requires a paid plan to use it outside of localhost COR, which also applies to alternative APIs. I attempted to create a basic RSS feed, but many popular news sites have started blocking RSS feed usage outside the intended use or deprecating RSS feeds. As a result, I've developed a simple article layout using JSONPlaceholder.
+Note: Unfortunately, NewsAPI requires a paid plan to use it outside of localhost COR, which also applies to alternative APIs. I attempted to create a basic RSS feed, but many popular news sites have started blocking RSS feed usage outside the intended use or deprecating RSS feeds. As a result, I've developed a simple article layout using JSONPlaceholder.
