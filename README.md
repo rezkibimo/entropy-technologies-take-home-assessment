@@ -33,7 +33,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 - [x] Nextjs project with TS support
 - [x] Responsive design with Tailwindcss
-- [x] Working todo list with localStore
+- [x] Working todo list with localStorage
 - [x] Weather widget with openweathermap
 - [ ] Articles with newsapi
 - [x] Deployed on Vercel
@@ -42,4 +42,4 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 - [x] ESLint config
 - [x] Unit testing with Playwright
 
-Unfortunately newsapi required paid plan in order to use it on non localhost COR, this also included the alternative api. However, I have created a simple article like layout using jsonplaceholder. 
+Unfortunately, NewsAPI requires a paid plan to use it outside of localhost COR, which also applies to alternative APIs. I attempted to create a basic RSS feed, but many popular news sites have started blocking RSS feed usage outside the intended use or deprecating RSS feeds. As a result, I've developed a simple article layout using JSONPlaceholder.

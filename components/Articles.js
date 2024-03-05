@@ -23,7 +23,7 @@ function Articles() {
 
     return (
         <div>
-            <h1 className="text-3xl font-bold">ARTICLES</h1>
+            <h1 className="text-3xl font-bold">News Feed</h1>
             <div
                 className="grid grid-flow-row md:gap-4 text-neutral-600 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {data.map((article) => (<div
