@@ -3,43 +3,84 @@
 import { useState, useEffect } from 'react'
 
 function Articles() {
-    const [data, setData] = useState(null)
-    const [isLoading, setLoading] = useState(true)
-    const url = process.env.ARTICLE_API_KEY
+    const [data, setData] = useState(null);
+    const [isLoading, setLoading] = useState(true);
+    const [category, setCategory] = useState(null);
+
+    const apiKey = process.env.ARTICLE_API_KEY;
+    const categoryParam = category ? `&category=${category}` : '';
+    const url = `https://newsapi.org/v2/top-headlines?language=en${categoryParam}&apiKey=${apiKey}`;
 
     useEffect(() => {
+        setLoading(true);
         fetch(url)
             .then((res) => res.json())
             .then((data) => {
-                setData(data.slice(0, 6)) // Take the first 6 articles
-                setLoading(false)
+                // Filter out articles with title "[Removed]"
+                const filteredArticles = data.articles.filter((article) => article.title !== "[Removed]");
+                setData(filteredArticles);
+                setLoading(false);
             })
-    }, [])
+            .catch((error) => {
+                console.error('Error fetching articles:', error);
+                setLoading(false);
+            });
+    }, [category]);
 
-    // console.log(data);
+    console.log(data)
 
-    if (isLoading) return <p>Loading...</p>
-    if (!data) return <p>No articles data</p>
+    if (isLoading) return <p>Loading...</p>;
+    if (!data) return <p>No articles data</p>;
 
     return (
         <div>
-            <h1 className="text-3xl font-bold">News Feed</h1>
+            <h1 className="text-3xl font-bold pb-4">News Feed</h1>
+            <form class="max-w-sm pb-4">
+                <label className="block mb-2 text-sm font-medium text-gray-900">Select category</label>
+                <select
+                    name="categories"
+                    id="categories"
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                >
+                    <option value="">All</option>
+                    <option value="business">Business</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="general">General</option>
+                    <option value="health">Health</option>
+                    <option value="science">Science</option>
+                    <option value="sports">Sports</option>
+                    <option value="technology">Technology</option>
+                </select>
+            </form>
             <div
-                className="grid grid-flow-row md:gap-4 text-neutral-600 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                {data.map((article) => (<div
-                    key={article.id}
-                    className="my-8 rounded shadow-lg shadow-gray-200 dark:shadow-gray-900 bg-white dark:bg-gray-800 duration-300 hover:-translate-y-1">
-                    <a href={article.url} className="cursor-pointer">
-                        <figure>
-                            <img src={article.thumbnailUrl} className="rounded-t h-72 w-full object-cover" />
-                            <figcaption className="p-4">
-                                <p className="text-lg mb-4 font-bold leading-relaxed text-gray-800 dark:text-gray-300">
-                                    {article.title}
-                                </p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </div>))}
+                className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {data.map((article) => (<article className="p-6 bg-white rounded-lg border border-gray-200 shadow-md" key={article.title}>
+                    <div className="flex justify-between items-center mb-5 text-gray-500">
+                        <span className="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded">
+                            {article.source.name}
+                        </span>
+                        <span className="text-sm">Published at {new Date(article.publishedAt).toLocaleDateString()}</span>
+                    </div>
+                    <img
+                        src={article.urlToImage ? article.urlToImage : 'https://placehold.co/243x132'}
+                        className="object-cover h-[243px] w-full"
+                        alt="Thumbnail"
+                    />
+                    <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900"><a href={article.url}>{article.title}</a></h2>
+                    <p className="mb-5 font-light text-gray-500">{article.description}</p>
+                    <div className="flex justify-between items-center">
+                        <div className="flex items-center space-x-4">
+                            <span className="font-medium">
+                                {article.author}
+                            </span>
+                        </div>
+                        <a href={article.url} className="inline-flex items-center font-medium text-primary-600 hover:underline">
+                            Read more
+                        </a>
+                    </div>
+                </article>))}
             </div>
         </div>
     )
