@@ -52,4 +52,7 @@ For deployment I'm using Vercel, since it got native integration with Github CI/
 - [x] ESLint config
 - [x] Unit testing with Playwright
 
-Note: Unfortunately, NewsAPI requires a paid plan to use it outside of localhost COR, which also applies to alternative APIs. The news section only work on localhost
+Note: Unfortunately, NewsAPI requires a paid plan to use it outside of localhost COR, which also applies to alternative APIs. The news section only work on localhost. Here some screenshot for the news section 
+
+![Screenshot1](forreadme1.png)
+![Screenshot2](forreadme2.png)

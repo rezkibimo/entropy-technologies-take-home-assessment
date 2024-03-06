@@ -3,7 +3,7 @@ import { test, expect } from "@playwright/test";
 test("add and remove item to todo list", async ({ page }) => {
   // Navigate to the todo list website
   await page.goto(
-    "https://entropy-technologies-take-home-assessment.vercel.app/"
+    "http://localhost:3000"
   );
 
   // Add item
