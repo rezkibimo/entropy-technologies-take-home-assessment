@@ -56,7 +56,7 @@ function Articles() {
             </form>
             <div
                 className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                {data.map((article) => (<article className="p-6 bg-white rounded-lg border border-gray-200 shadow-md" key={article.title}>
+                {data.map((article) => (<article className="p-6 bg-white rounded-lg border border-gray-200 shadow-md flex flex-col justify-start" key={article.title}>
                     <img
                         src={article.urlToImage ? article.urlToImage : 'https://placehold.co/243x132'}
                         className="object-cover h-[243px] w-full"
@@ -69,14 +69,14 @@ function Articles() {
                         <span className="text-sm">Published at {new Date(article.publishedAt).toLocaleDateString()}</span>
                     </div>
                     <h2 className="mb-2 text-xl font-bold tracking-tight text-gray-900"><a href={article.url}>{article.title}</a></h2>
-                    <p className="mb-5 font-light text-gray-500">{article.description}</p>
-                    <div className="flex justify-between items-center">
-                        <div className="flex items-center space-x-4">
-                            <span className="font-medium">
+                    <p className="mb-5 font-light text-gray-500 line-clamp-3">{article.description}</p>
+                    <div className="flex justify-between items-center mt-auto">
+                        <div className="flex flex-1 items-center space-x-4">
+                            <span className="font-medium text-left line-clamp-1">
                                 {article.author}
                             </span>
                         </div>
-                        <a href={article.url} className="inline-flex items-center font-medium text-primary-600 hover:underline">
+                        <a href={article.url} className="flex-1 items-center font-medium text-right text-primary-600 hover:underline">
                             Read more
                         </a>
                     </div>
