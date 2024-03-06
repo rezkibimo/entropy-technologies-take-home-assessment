@@ -25,6 +25,22 @@ function Articles() {
         <div>
             <h1 className="text-3xl font-bold">News Feed</h1>
             <div
+                className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                {data.map((article) => (<article className="p-6 bg-white rounded-lg border border-gray-200 shadow-md" key={article.id}>
+                    <img
+                        src={article.thumbnailUrl}
+                        className="object-cover h-[243px] w-full"
+                        alt="Thumbnail"
+                    />
+                    <h2 className="mb-2 text-xl font-bold tracking-tight text-gray-900"><a href={article.url}>{article.title}</a></h2>
+                    <div className="flex justify-between items-center">
+                        <a href={article.url} className="inline-flex items-center font-medium text-primary-600 hover:underline">
+                            Read more
+                        </a>
+                    </div>
+                </article>))}
+            </div>
+            {/* <div
                 className="grid grid-flow-row md:gap-4 text-neutral-600 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {data.map((article) => (<div
                     key={article.id}
@@ -40,7 +56,7 @@ function Articles() {
                         </figure>
                     </a>
                 </div>))}
-            </div>
+            </div> */}
         </div>
     )
 }
