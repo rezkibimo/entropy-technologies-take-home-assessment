@@ -45,11 +45,11 @@ For deployment I'm using Vercel, since it got native integration with Github CI/
 - [x] Responsive design with Tailwindcss
 - [x] Working todo list with localStorage
 - [x] Weather widget with openweathermap
-- [ ] Articles with newsapi
+- [x] Articles with newsapi
 - [x] Deployed on Vercel
 - [x] Quotes of the day using dummyjson
 - [x] All APIs loaded using ENV
 - [x] ESLint config
 - [x] Unit testing with Playwright
 
-Note: Unfortunately, NewsAPI requires a paid plan to use it outside of localhost COR, which also applies to alternative APIs. I attempted to create a basic RSS feed, but many popular news sites have started blocking RSS feed usage outside the intended use or deprecating RSS feeds. As a result, I've developed a simple article layout using JSONPlaceholder.
+Note: Unfortunately, NewsAPI requires a paid plan to use it outside of localhost COR, which also applies to alternative APIs. The news section only work on localhost
