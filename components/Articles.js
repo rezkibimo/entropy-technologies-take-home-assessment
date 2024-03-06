@@ -30,7 +30,7 @@ function Articles() {
     console.log(data)
 
     if (isLoading) return <p>Loading...</p>;
-    if (!data) return <p>No articles data</p>;
+    if (!data) return <p>Only works with localhost</p>;
 
     return (
         <div>
